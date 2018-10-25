@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import com.anil.property.bean.JmsPropertyBean;
@@ -19,7 +20,11 @@ import com.anil.property.bean.PropertyBean;
  *
  */
 @Configuration
-@PropertySource({"classpath:datasource.properties","classpath:jms.properties"})
+/*
+ * @PropertySource({"classpath:datasource.properties","classpath:jms.properties"
+ * }) or
+ */
+@PropertySources({ @PropertySource("classpath:datasource.properties"), @PropertySource("classpath:jms.properties") })
 public class PropertyConfig {
 
 	@Value("${anil.username}")
